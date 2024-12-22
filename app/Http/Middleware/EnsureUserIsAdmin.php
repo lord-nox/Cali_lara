@@ -9,16 +9,7 @@ class EnsureUserIsAdmin
 {
     public function handle($request, Closure $next)
     {
-        // Allow unauthenticated users through (e.g., public routes like '/')
-        if (!auth()->check()) {
-            return $next($request);
-        }
-
-        // Restrict non-admins
-        if (!auth()->user()->is_admin) {
-            abort(403, 'Unauthorized action.');
-        }
-
-        return $next($request);
+        return $next($request); // Dashboard moe vr ied available zn
     }
+
 }
