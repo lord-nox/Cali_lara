@@ -23,6 +23,9 @@
                         </x-nav-link>
                     @endif
                 @endauth
+                <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
+                    {{ __('News') }}
+                </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->
