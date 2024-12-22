@@ -27,6 +27,15 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <!-- Display Profile Picture -->
+                @auth
+                    @if(auth()->user()->profile_picture)
+                        <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" 
+                             alt="Profile Picture" 
+                             class="w-8 h-8 rounded-full me-3">
+                    @endif
+                @endauth
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_admin')->default(false); // Adds the 'is_admin' column
             $table->date('birthday')->nullable(); // Birthday field
-            $table->text('about_me')->nullable(); // About Me field    
+            $table->text('about_me')->nullable(); // About Me field
+            $table->string('profile_picture')->nullable(); // Path to the profile picture  
         });
     }
 

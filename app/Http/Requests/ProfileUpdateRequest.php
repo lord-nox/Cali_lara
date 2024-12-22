@@ -27,6 +27,7 @@ class ProfileUpdateRequest extends FormRequest
             ],
             'birthday' => ['nullable', 'date'], // Allow null or a valid date
             'about_me' => ['nullable', 'string', 'max:1000'], // Allow null or a string up to 1000 characters
+            'profile_picture' => ['nullable', 'image', 'max:2048'], // Ensure it's an image file
         ];
     }
 }

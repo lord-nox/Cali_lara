@@ -62,6 +62,36 @@
                 </div>
             </div>
 
+            <!-- Update Profile Picture -->
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+
+                        <!-- Profile Picture -->
+                        <div>
+                            <x-input-label for="profile_picture" :value="__('Profile Picture')" />
+                            <input id="profile_picture" name="profile_picture" type="file" class="mt-1 block w-full">
+                            <x-input-error class="mt-2" :messages="$errors->get('profile_picture')" />
+                        </div>
+
+                        <!-- Show current profile picture -->
+                        @if ($user->profile_picture)
+                            <div class="mt-4">
+                                <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="w-24 h-24 rounded-full">
+                            </div>
+                        @endif
+
+                        <div class="flex items-center justify-end mt-4">
+                            <x-primary-button>
+                                {{ __('Update Profile Picture') }}
+                            </x-primary-button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <!-- Delete User -->
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
