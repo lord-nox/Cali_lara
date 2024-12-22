@@ -28,29 +28,41 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
-
+    
         // Handle profile picture upload
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
-
+    
             // Store the file in the 'profile_pictures' directory
             $filePath = $file->store('profile_pictures', 'public');
-
+    
             // Delete old profile picture if it exists
             if ($user->profile_picture) {
                 Storage::disk('public')->delete($user->profile_picture);
             }
-
+    
             // Save the new file path
-            $user->profile_picture = $filePath;
+            $user->update(['profile_picture' => $filePath]);
         }
-
-        // Update other fields
-        $user->fill($request->except('profile_picture'));
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    
+        // Handle birthday update
+        if ($request->has('birthday')) {
+            $user->update(['birthday' => $request->input('birthday')]);
+        }
+    
+        // Handle "about me" update
+        if ($request->has('about_me')) {
+            $user->update(['about_me' => $request->input('about_me')]);
+        }
+    
+        // Handle name and email update
+        if ($request->has(['name', 'email'])) {
+            $user->update($request->only(['name', 'email']));
+        }
+    
+        return Redirect::route('profile.edit')->with('status', 'Profile updated successfully.');
     }
+    
 
     /**
      * Delete the user's account.
