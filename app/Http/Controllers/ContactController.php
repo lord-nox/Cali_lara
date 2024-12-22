@@ -8,9 +8,18 @@ use App\Models\ContactSubmission;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('contact.index');
+        // Fetch the latest submission for the logged-in user (if authenticated)
+        $latestSubmission = null;
+
+        if (auth()->check()) {
+            $latestSubmission = ContactSubmission::where('email', auth()->user()->email)
+                ->latest()
+                ->first();
+        }
+
+        return view('contact.index', compact('latestSubmission'));
     }
 
     public function send(Request $request)

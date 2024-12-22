@@ -18,6 +18,7 @@
                 </div>
             @endif
 
+            <!-- Contact Form -->
             <form method="POST" action="{{ route('contact.send') }}">
                 @csrf
                 <div>
@@ -43,13 +44,11 @@
                 </div>
             </form>
 
-            <!-- Display admin's response if available -->
-            @if (!empty($adminResponse))
-                <div class="mt-8">
-                    <h3 class="text-lg font-semibold text-gray-800">{{ __('Admin Response') }}</h3>
-                    <div class="mt-4 p-4 bg-gray-100 rounded">
-                        <p>{{ $adminResponse }}</p>
-                    </div>
+            <!-- Admin Response -->
+            @if ($latestSubmission && $latestSubmission->admin_response)
+                <div class="mt-6 p-4 border rounded bg-gray-100">
+                    <h3 class="font-semibold text-lg">{{ __('Admin Response') }}</h3>
+                    <p class="mt-2">{{ $latestSubmission->admin_response }}</p>
                 </div>
             @endif
         </div>
