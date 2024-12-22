@@ -5,9 +5,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureUserIsAdmin;
-use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,6 +36,10 @@ Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
     // Admin-only news routes
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
     Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+
+    // Admin contact management
+    Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contact.index');
+    Route::post('/admin/contact/{id}/respond', [AdminContactController::class, 'respond'])->name('admin.contact.respond');
 });
 
 // FAQ page routes (visible to everyone)
@@ -54,8 +59,8 @@ Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
     Route::delete('/faq/{faq}', [FaqController::class, 'destroy'])->name('faq.destroy');
 });
 
-Route::post('/faq/{faq}/answer', [FaqController::class, 'storeAnswer'])->name('answer.store');
 
+// Contact routes
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 

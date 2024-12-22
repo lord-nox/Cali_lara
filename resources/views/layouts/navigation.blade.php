@@ -16,21 +16,28 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @auth
-                    @if(auth()->user()->is_admin)
-                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
-                            {{ __('Users') }}
-                        </x-nav-link>
-                    @endif
-                @endauth
+
+                <!-- Admin Navigation Links -->
+                @can('admin-access')
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.contact.index')" :active="request()->routeIs('admin.contact.index')">
+                        {{ __('Contact Panel') }}
+                    </x-nav-link>
+                @endcan
+
+                <!-- News -->
                 <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
                     {{ __('News') }}
                 </x-nav-link>
 
+                <!-- FAQ -->
                 <x-nav-link :href="route('faq.index')" :active="request()->routeIs('faq.index')">
                     {{ __('FAQ') }}
                 </x-nav-link>
 
+                <!-- Contact -->
                 <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                     {{ __('Contact') }}
                 </x-nav-link>

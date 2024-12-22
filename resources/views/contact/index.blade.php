@@ -42,6 +42,16 @@
                     <x-primary-button>{{ __('Send') }}</x-primary-button>
                 </div>
             </form>
+
+            <!-- Display admin's response if available -->
+            @if (!empty($adminResponse))
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold text-gray-800">{{ __('Admin Response') }}</h3>
+                    <div class="mt-4 p-4 bg-gray-100 rounded">
+                        <p>{{ $adminResponse }}</p>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </div>

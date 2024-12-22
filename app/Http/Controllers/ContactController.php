@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Models\ContactSubmission;
 
 class ContactController extends Controller
 {
@@ -18,6 +19,13 @@ class ContactController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'message' => 'required|string',
+        ]);
+
+        // Save the submission to the database
+        ContactSubmission::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
         ]);
 
         $data = [

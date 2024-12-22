@@ -20,8 +20,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Gate to manage users (already exists)
         Gate::define('manage-users', function ($user) {
             return $user->is_admin;
+        });
+
+        // Gate for admin panel access
+        Gate::define('admin-access', function ($user) {
+            return $user->is_admin; // Ensure it checks the `is_admin` column
         });
     }
 }
