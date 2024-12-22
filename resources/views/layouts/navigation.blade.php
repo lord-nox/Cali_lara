@@ -30,6 +30,10 @@
                 <x-nav-link :href="route('faq.index')" :active="request()->routeIs('faq.index')">
                     {{ __('FAQ') }}
                 </x-nav-link>
+
+                <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                    {{ __('Contact') }}
+                </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->

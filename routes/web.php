@@ -7,6 +7,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureUserIsAdmin;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,6 +55,9 @@ Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
 });
 
 Route::post('/faq/{faq}/answer', [FaqController::class, 'storeAnswer'])->name('answer.store');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 // Authentication routes
 require __DIR__ . '/auth.php';
