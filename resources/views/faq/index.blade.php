@@ -30,16 +30,28 @@
                         @foreach ($category->faqs as $faq)
                             <li class="mt-4">
                                 <h4 class="font-semibold">{{ $faq->question }}</h4>
-                                <p>{{ $faq->answer ?? 'No answer yet.' }}</p>
+                                
+                                <!-- Display Answers -->
+                                <div class="mt-2">
+                                    <h5 class="font-bold">Answers:</h5>
+                                    @forelse ($faq->answers as $answer)
+                                        <div class="border rounded p-2 my-2">
+                                            <p>{{ $answer->content }}</p>
+                                            <small>Answered by: {{ $answer->user->name }}</small>
+                                        </div>
+                                    @empty
+                                        <p>No answers yet.</p>
+                                    @endforelse
+                                </div>
 
                                 <!-- Form to Answer the Question -->
                                 @auth
                                     <form method="POST" action="{{ route('answer.store', $faq->id) }}" class="mt-4">
                                         @csrf
                                         <div>
-                                            <x-input-label for="answer" :value="__('Your Answer')" />
-                                            <textarea id="answer" name="answer" rows="2" class="block w-full mt-1"></textarea>
-                                            <x-input-error :messages="$errors->get('answer')" />
+                                            <x-input-label for="content" :value="__('Your Answer')" />
+                                            <textarea id="content" name="content" rows="2" class="block w-full mt-1"></textarea>
+                                            <x-input-error :messages="$errors->get('content')" />
                                         </div>
                                         <div class="mt-4">
                                             <x-primary-button>{{ __('Submit Answer') }}</x-primary-button>

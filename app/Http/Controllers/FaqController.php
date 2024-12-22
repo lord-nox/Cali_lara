@@ -44,6 +44,20 @@ class FaqController extends Controller
 
         return redirect()->route('faq.index')->with('success', 'Question added successfully.');
     }
+    public function storeAnswer(Request $request, Faq $faq)
+    {
+        $request->validate([
+            'content' => 'required|string',
+        ]);
+
+        $faq->answers()->create([
+            'content' => $request->content,
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('faq.index')->with('success', 'Answer submitted successfully.');
+    }
+
 
     /**
      * Show the form for editing an existing FAQ.

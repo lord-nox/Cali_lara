@@ -53,5 +53,7 @@ Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
     Route::delete('/faq/{faq}', [FaqController::class, 'destroy'])->name('faq.destroy');
 });
 
+Route::post('/faq/{faq}/answer', [FaqController::class, 'storeAnswer'])->name('answer.store');
+
 // Authentication routes
 require __DIR__ . '/auth.php';
