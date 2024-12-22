@@ -25,6 +25,8 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'birthday' => ['nullable', 'date'], // Allow null or a valid date
+            'about_me' => ['nullable', 'string', 'max:1000'], // Allow null or a string up to 1000 characters
         ];
     }
 }

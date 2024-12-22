@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_admin')->default(false); // Adds the 'is_admin' column
+            $table->date('birthday')->nullable(); // Birthday field
+            $table->text('about_me')->nullable(); // About Me field    
         });
     }
 
@@ -23,6 +25,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('is_admin'); // Drops the 'is_admin' column when reversing the migration
+            $table->dropColumn('birthday');
+            $table->dropColumn('about_me');
         });
     }
 };
