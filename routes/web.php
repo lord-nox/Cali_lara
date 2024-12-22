@@ -15,11 +15,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Grouped routes for authenticated users
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 // Routes for admin-only user management
 Route::middleware(['auth', 'can:manage-users'])->group(function () {
