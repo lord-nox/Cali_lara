@@ -47,7 +47,7 @@ class ProfileController extends Controller
 
         // Update other fields
         $user->fill($request->except('profile_picture'));
-        $user->save();
+        $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

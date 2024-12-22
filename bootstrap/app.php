@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web(append: [
-            App\Http\Middleware\EnsureUserIsAdmin::class,
+            // Do not append admin middleware globally
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

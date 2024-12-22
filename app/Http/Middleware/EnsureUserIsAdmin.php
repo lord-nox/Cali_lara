@@ -9,7 +9,10 @@ class EnsureUserIsAdmin
 {
     public function handle($request, Closure $next)
     {
-        return $next($request); // Dashboard moe vr ied available zn
-    }
+        if (!auth()->check() || !auth()->user()->is_admin) {
+            abort(403, 'Unauthorized action.');
+        }
 
+        return $next($request);
+    }
 }
