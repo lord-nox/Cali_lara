@@ -16,6 +16,7 @@
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p class="card-text">{{ $item->content }}</p>
                     <p class="text-muted">{{ $item->publication_date->format('F d, Y') }}</p>
+                    <a href="{{ route('news.show', $item) }}" class="btn btn-primary">View Details</a>
                 </div>
             </div>
         @endforeach

@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureUserIsAdmin;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -63,6 +64,11 @@ Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
 // Contact routes
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+//Comment on newspostsss
+Route::post('/news/{news}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
+
 
 // Authentication routes
 require __DIR__ . '/auth.php';
