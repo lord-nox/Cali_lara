@@ -60,4 +60,20 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query'); // Ophalen van de zoekterm
+
+        // Zoeken naar gebruikers op basis van naam of e-mailadres
+        $users = User::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('email', 'LIKE', "%{$query}%")
+            ->paginate(10);
+
+        return view('users.search', compact('users', 'query'));
+    }
+
+    public function show(User $user)
+    {
+        return view('users.show', compact('user'));
+    }
 }
