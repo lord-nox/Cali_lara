@@ -14,6 +14,9 @@ use App\Http\Controllers\CommentController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home'); // Public access
+Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+
 
 // Routes for all authenticated users
 Route::middleware(['auth'])->group(function () {
