@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Laravel</title>
+    <title>The Ultimate Calisthenics</title>
 </head>
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background: linear-gradient(to bottom, #ff5f6d, #ffc371); color: white;">
     <!-- Hero Section -->
@@ -29,7 +29,7 @@
         @endif
 
         <!-- Welcome Text -->
-        <h1 style="font-size: 4rem; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">Welcome to Laravel</h1>
+        <h1 style="font-size: 4rem; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">The Ultimate Calisthenics Platform</h1>
         <p style="font-size: 1.5rem; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);">Search for users below:</p>
 
         <!-- Search Bar -->
