@@ -34,8 +34,8 @@ Route::middleware(['auth'])->group(function () {
 
 // Admin-only routes
 Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
-    // User management
-    Route::resource('users', UserController::class)->except(['show']);
+    // User management (includes create, store, edit, update, destroy)
+    Route::resource('users', UserController::class);
 
     // Admin-only news routes
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
