@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home'); // Public access
 Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
-Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
 
 // Routes for all authenticated users
@@ -45,6 +44,9 @@ Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
     Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contact.index');
     Route::post('/admin/contact/{id}/respond', [AdminContactController::class, 'respond'])->name('admin.contact.respond');
 });
+
+// Users page
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
 // FAQ page routes (visible to everyone)
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index'); // Public access
