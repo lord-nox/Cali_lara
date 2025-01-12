@@ -29,33 +29,26 @@ class ProfileController extends Controller
     {
         $user = $request->user();
     
-        // Handle profile picture upload
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
     
-            // Store the file in the 'profile_pictures' directory
             $filePath = $file->store('profile_pictures', 'public');
     
-            // Delete old profile picture if it exists
             if ($user->profile_picture) {
                 Storage::disk('public')->delete($user->profile_picture);
             }
     
-            // Save the new file path
             $user->update(['profile_picture' => $filePath]);
         }
     
-        // Handle birthday update
         if ($request->has('birthday')) {
             $user->update(['birthday' => $request->input('birthday')]);
         }
     
-        // Handle "about me" update
         if ($request->has('about_me')) {
             $user->update(['about_me' => $request->input('about_me')]);
         }
     
-        // Handle name and email update
         if ($request->has(['name', 'email'])) {
             $user->update($request->only(['name', 'email']));
         }
@@ -64,9 +57,6 @@ class ProfileController extends Controller
     }
     
 
-    /**
-     * Delete the user's account.
-     */
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [

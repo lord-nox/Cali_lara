@@ -30,7 +30,6 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Save the submission to the database
         ContactSubmission::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -40,12 +39,11 @@ class ContactController extends Controller
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'userMessage' => $request->message, // Renamed variable to avoid conflict
+            'userMessage' => $request->message,
         ];
 
-        // Send email to admin
         Mail::send('emails.contact', $data, function ($mail) use ($data) {
-            $mail->to('lars.paridaens@student.ehb.be') // Replace with admin's email
+            $mail->to('lars.paridaens@student.ehb.be')
                 ->subject('Contact Form Submission');
         });
 

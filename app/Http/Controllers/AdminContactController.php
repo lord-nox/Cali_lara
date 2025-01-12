@@ -9,7 +9,7 @@ class AdminContactController extends Controller
 {
     public function index()
     {
-        $submissions = ContactSubmission::latest()->get(); // Fetch all submissions
+        $submissions = ContactSubmission::latest()->get();
         return view('admin.contact.index', compact('submissions'));
     }
 
