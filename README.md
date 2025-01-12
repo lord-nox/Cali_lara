@@ -83,6 +83,24 @@ Update je .env-bestand met de juiste databasegegevens.
    ```bash
    php artisan migrate --seed
 
+9. **E-mailservice configuratie:**
+
+Update je .env-bestand met de SMTP-instellingen van jouw e-mailserviceprovider. Hier is een voorbeeldconfiguratie:
+
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=your_username
+    MAIL_PASSWORD=your_password
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS=your_email@example.com
+    MAIL_FROM_NAME="Calisthenics Platform"
+- MAIL_MAILER: Gebruik smtp voor een standaard e-mailservice.
+- MAIL_HOST: Dit is de SMTP-host (bijv. Mailtrap, Gmail, Outlook, enz.).
+- MAIL_PORT: De poort voor SMTP-verkeer (bijv. 587 voor Gmail).
+- MAIL_USERNAME en MAIL_PASSWORD: Je inloggegevens voor de SMTP-service.
+- MAIL_FROM_ADDRESS: Het e-mailadres dat als afzender wordt weergegeven.
+
 ---
 
 ## 🖥️ Gebruik
