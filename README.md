@@ -1,20 +1,28 @@
 # Calisthenics Community Platform
 
+![VScode](https://img.shields.io/badge/VScode-v1.96.2-blue?style=for-the-badge&logo=visual-studio-code&logoColor=white&labelColor=000000)
+![PHP](https://img.shields.io/badge/PHP-v8.2.26-lightblue?style=for-the-badge&logo=PHP&logoColor=white&labelColor=000000)
+![Node.js](https://img.shields.io/badge/Node.js-v20.18.1-green?style=for-the-badge&logo=node.js&logoColor=white&labelColor=000000)
+![Laravel](https://img.shields.io/badge/Laravel-v11.36.1-red?style=for-the-badge&logo=Laravel&logoColor=white&labelColor=000000)
+![Composer](https://img.shields.io/badge/Composer-v2.8.3-brown?style=for-the-badge&logo=Composer&logoColor=white&labelColor=000000)
+![npm](https://img.shields.io/badge/npm-v10.8.2-orange?style=for-the-badge&logo=npm&logoColor=white&labelColor=000000)
+
+
 Welkom bij het Calisthenics Community Platform! Dit project is een Laravel-gebaseerde webapplicatie waarmee gebruikers de wereld van calisthenics kunnen ontdekken, bijdragen aan een groeiende community, en toegang krijgen tot gepersonaliseerde inhoud. Het platform ondersteunt gebruikersauthenticatie, rolgebaseerde toegangscontrole, en biedt dynamische functionaliteiten zoals nieuwsbeheer, profielen, FAQ's, en een gebruiksvriendelijke zoekfunctie.
 
 ---
 
-## 📖 Inhoudsopgave
-- [✨ Functionaliteiten](#✨-functionaliteiten)
-- [⚙️ Installatieproces](#⚙️-installatieproces)
-- [🚀 Migratie- en Seederproces](#🚀-migratie--en-seederproces)
-- [🖥️ Gebruik](#🖥️-gebruik)
-- [📚 Bronnen](#📚-bronnen)
-- [🛡️ Licentie](#🛡️-licentie)
+## Inhoudsopgave
+- [Functionaliteiten](#functionaliteiten)
+- [Installatieproces](#installatieproces)
+- [Migratie- en Seederproces](#migratie--en-seederproces)
+- [Gebruik](#gebruik)
+- [Bronnen](#bronnen)
+- [Licentie](#licentie)
 
 ---
-
-## ✨ Functionaliteiten
+ 
+## Functionaliteiten
 - **Gebruikersauthenticatie:**
   - Registreren, inloggen, wachtwoord herstellen, en uitloggen.
   - 'Remember me'-functionaliteit.
@@ -37,7 +45,7 @@ Welkom bij het Calisthenics Community Platform! Dit project is een Laravel-gebas
 
 ---
 
-## ⚙️ Installatieproces
+## Installatieproces
 
 Volg de onderstaande stappen om het project lokaal te installeren:
 
@@ -68,7 +76,7 @@ Update je .env-bestand met de juiste databasegegevens.
    ```bash
    php artisan storage:link
 
-## 🚀 Migratie- en Seederproces
+## Migratie- en Seederproces
 
 6. **Voer de database-migraties uit:**
 
@@ -103,7 +111,7 @@ Update je .env-bestand met de SMTP-instellingen van jouw e-mailserviceprovider. 
 
 ---
 
-## 🖥️ Gebruik
+## Gebruik
 Start de ontwikkelserver:
 
     php artisan serve
@@ -116,7 +124,7 @@ Email: admin@ehb.be
 Wachtwoord: Password!321
 Openbare toegang: Gebruikers kunnen zich registreren of inloggen om gepersonaliseerde inhoud te bekijken.
 
-## 📚 Bronnen
+## Bronnen
 1. Laravel-documentatie
 Officiële documentatie voor Laravel-framework:
 https://laravel.com/docs
@@ -155,5 +163,5 @@ https://canvas.ehb.be
 
 ---
 
-## 🛡️ Licentie
-Dit project is beschikbaar onder de MIT-licentie. Zie het bestand <a href="LICENSE">LICENSE</a> voor meer informatie.
+## Licentie
+Dit project is beschikbaar onder de MIT-licentie. Zie het bestand <a href="LICENSE">LICENSE</a> voor meer informatie.🛡️ 
