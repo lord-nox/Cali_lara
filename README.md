@@ -5,12 +5,12 @@ Welkom bij het Calisthenics Community Platform! Dit project is een Laravel-gebas
 ---
 
 ## 📖 Inhoudsopgave
-- [✨ Functionaliteiten](#functionaliteiten)
-- [⚙️ Installatieproces](#installatieproces)
-- [🚀 Migratie- en Seederproces](#migratie--en-seederproces)
-- [🖥️ Gebruik](#gebruik)
-- [📚 Bronnen](#bronnen)
-- [🛡️ Licentie](#licentie)
+- [✨ Functionaliteiten](#✨-functionaliteiten)
+- [⚙️ Installatieproces](#⚙️-installatieproces)
+- [🚀 Migratie- en Seederproces](#🚀-migratie--en-seederproces)
+- [🖥️ Gebruik](#🖥️-gebruik)
+- [📚 Bronnen](#📚-bronnen)
+- [🛡️ Licentie](#🛡️-licentie)
 
 ---
 
@@ -68,7 +68,7 @@ Update je .env-bestand met de juiste databasegegevens.
    ```bash
    php artisan storage:link
 
-🚀 Migratie- en Seederproces
+## 🚀 Migratie- en Seederproces
 
 6. **Voer de database-migraties uit:**
 
